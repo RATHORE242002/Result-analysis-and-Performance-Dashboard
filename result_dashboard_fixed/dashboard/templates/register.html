@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container">
+
+    <h2>📝 Register</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Username -->
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Enter Username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <!-- Role -->
+        <div class="input-box">
+            <select name="role" required>
+                <option value="">Select Role</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+                <option value="admin">Admin</option>
+                 <option value="hod">HOD</option>
+            </select>
+        </div>
+
+        <!-- Button -->
+        <button type="submit" class="btn">Register</button>
+    </form>
+
+    <p class="link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
+
+</div>
